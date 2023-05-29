@@ -1,6 +1,5 @@
 # Azuriom scraping V1.0.0
 # by MrCyci6#0001
-
 from bs4 import BeautifulSoup
 import requests
 
@@ -35,6 +34,7 @@ p = session.post(log_u, data=payload)
 
 nbr = int(input("Nombre d'utilisateur à scrap >> "))
 print("\n")
+
 i = 0
 while i <= (nbr + 1):
 
@@ -48,12 +48,12 @@ while i <= (nbr + 1):
 
         print(f"{i} - {pseudo['value']} - {email['value']} - {ip['value']}")
 
-        f = open("data.txt", 'a')
-        f.write(pseudo['value'] + " - " + email['value'] + " - " + ip['value'] + "\n")
+        with open(f"./output/{domain}.txt", "a") as file:
+            file.write(f"{pseudo['value']} - {email['value']} - {ip['value']}\n")
 
         i += 1
     except:
         print(f"pas d'utilisateur avec cet id : {i}")
         i += 1
 
-print("\nTous les utilisateurs on été importés dans : data.txt")
+print(f"\nTous les utilisateurs on été importés dans : /output/{domain}.txt")
