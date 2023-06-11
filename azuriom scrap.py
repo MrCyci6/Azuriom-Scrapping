@@ -1,5 +1,5 @@
 # Azuriom scraping V1.0.0
-# by MrCyci6#0001
+# by mrcyci6 on discord
 from bs4 import BeautifulSoup
 import requests
 
